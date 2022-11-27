@@ -1,3 +1,7 @@
 **/*.o
 main
 build
+.vscode
+vgcore.*
+test_set_struc
+test_set_func

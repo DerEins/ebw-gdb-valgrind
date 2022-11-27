@@ -21,9 +21,9 @@ void *asso__create(
     struct association *new_asso = malloc(sizeof(struct association));
     new_asso->classement = classement;
     new_asso->statut = statut;
-    new_asso->nom = malloc(sizeof(char) * (strlen(nom) + 1));
+    new_asso->nom = malloc(sizeof(char) * (strlen(nom)));
     strcpy(new_asso->nom, nom);
-    new_asso->type = malloc(sizeof(char) * (strlen(type) + 1));
+    new_asso->type = malloc(sizeof(char) * (strlen(type)));
     strcpy(new_asso->type, type);
     new_asso->nb_membres = nb_membres;
     return new_asso;
@@ -34,9 +34,9 @@ void *asso__cpy(const void *asso)
     struct association *new_asso = malloc(sizeof(struct association));
     new_asso->classement = ((struct association *)asso)->classement;
     new_asso->statut = ((struct association *)asso)->statut;
-    new_asso->nom = malloc(sizeof(char) * (strlen(((struct association *)asso)->nom) + 1));
+    new_asso->nom = malloc(sizeof(char) * (strlen(((struct association *)asso)->nom)));
     strcpy(new_asso->nom, ((struct association *)asso)->nom);
-    new_asso->type = malloc(sizeof(char) * (strlen(((struct association *)asso)->type) + 1));
+    new_asso->type = malloc(sizeof(char) * (strlen(((struct association *)asso)->type)));
     strcpy(new_asso->type, ((struct association *)asso)->type);
     new_asso->nb_membres = ((struct association *)asso)->nb_membres;
     return new_asso;
@@ -75,7 +75,5 @@ void asso__print(const void *asso)
 
 void asso__del(void *asso)
 {
-    free(((struct association *)asso)->type);
-    free(((struct association *)asso)->nom);
     free(asso);
 }
