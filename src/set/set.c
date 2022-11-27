@@ -50,7 +50,7 @@ void shift_right(void *s[], size_t begin, size_t end)
 void shift_left(void *s[], size_t begin, size_t end)
 {
     unsigned int cpt = begin;
-    for (cpt = begin; cpt < end; ++cpt)
+    for (cpt = begin; cpt <= end; ++cpt)
     {
         s[cpt] = s[cpt + 1];
     }
@@ -106,10 +106,6 @@ int set__add(struct set *se, void *c)
 
 int set__find(const struct set *se, void *c)
 {
-    if (se->s == NULL)
-    {
-        return 0;
-    }
     unsigned int found_idx = find(se, c, 0, se->size - 1);
     return (se->size > 0 && found_idx < se->size && se->cmp(se->s[found_idx], c) == 0);
 }
