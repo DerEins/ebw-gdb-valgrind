@@ -150,7 +150,7 @@ size_t set__size(const struct set *se)
 struct set *set__filter(int (*filter)(void *), const struct set *se)
 {
     struct set *s_filtered = set__empty(se->cmp, se->copy, se->del);
-    size_t cpt = 0;
+    size_t cpt; // Might be equal to 0
     while (cpt < se->size)
     {
         if (filter(se->s[cpt]))
